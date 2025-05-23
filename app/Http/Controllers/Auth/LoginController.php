@@ -4,10 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use Auth;
+use Session;
 
 class LoginController extends Controller
 {
@@ -25,20 +24,16 @@ class LoginController extends Controller
         ]);
 
         // Attempt to log the user in
-        if (auth()->attempt($request->only('email', 'password'))) {
-            // Redirect to the intended page or dashboard
+        $credentials = $request->only('email', 'password');
+        if (Auth::attempt($credentials)) {
             return redirect()->route('dashboard');
         }
-
-        // If authentication fails, redirect back with an error message
-        return redirect()->back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ]);
+        return redirect()->back()->with('message','Login details are not valid');
     }
 
     public function logout(){
-        session()->flush();
-        auth()->logout();
+        session::flush();
+        auth::logout();
         return redirect()->route('login')->with('status', 'You have been logged out successfully.');
     }
 }

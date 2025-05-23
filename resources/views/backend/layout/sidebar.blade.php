@@ -1,8 +1,8 @@
- {{-- @php
+ @php
  use App\Models\Sitesetting;
 
  $data = Sitesetting::first();
- @endphp --}}
+ @endphp
  <!-- Spinner Start -->
  <div id="spinner"
      class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -15,8 +15,8 @@
  <div class="sidebar pe-4 pb-3">
      <nav class="navbar bg-secondary navbar-dark">
          @if(!empty($data))
-         <a href="#s="navbar-brand mx-4 mb-3">
-             <h3 class="text-primary"><i class="fa fa-utensils me-2"></i>{{$data->name}}</h3>
+         <a href="#"class="navbar-brand mx-4 mb-3">
+             <h3 class="text-primary"><i class="fa fa-plane-departure me-2"></i>{{$data->name}}</h3>
          </a>
          @endif
          <div class="d-flex align-items-center ms-4 mb-4">
@@ -42,7 +42,7 @@
              </div>
          </div>
          <div class="navbar-nav w-100">
-             <a href="#" class="nav-item nav-link active"><i
+             <a href="{{route('dashboard')}}" class="nav-item nav-link active"><i
                      class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
              <div class="nav-item dropdown">
                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
@@ -58,8 +58,8 @@
                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
                          class="fa fa-phone me-2"></i>Contact</a>
                  <div class="dropdown-menu bg-transparent border-0">
-                     <a href="#" class="dropdown-item">Contact</a>
-                     <a href="#" class="dropdown-item">Media Links</a>
+                     <a href="{{route('view.contact')}}" class="dropdown-item">Contact</a>
+                     <a href="{{route('view.medialink')}}" class="dropdown-item">Media Links</a>
                  </div>
              </div>
 
@@ -73,15 +73,14 @@
                  </div>
              </div>
 
-             <a href="#" class="nav-item nav-link"><i class="fa fa-image me-2"></i>Gallery</a>
+             <a href="{{route('view.gallery')}}" class="nav-item nav-link"><i class="fa fa-image me-2"></i>Gallery</a>
 
-             <a href="#" class="nav-item nav-link"><i class="fa fa-smile me-2"></i>Special
-                 Items</a>
+             <a href="{{route('view.service')}}" class="nav-item nav-link"><i class="fa fa-smile me-2"></i>Services</a>
 
-             <a href="#" class="nav-item nav-link"><i
+             <a href="{{route('view.testimonial')}}" class="nav-item nav-link"><i
                      class="fa fa-table me-2"></i>Testimonial</a>
 
-             <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>
+             {{-- <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a> --}}
 
              <div class="nav-item dropdown">
                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i

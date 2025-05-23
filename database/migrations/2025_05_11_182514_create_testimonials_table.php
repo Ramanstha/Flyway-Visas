@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sitesettings', function (Blueprint $table) {
+        Schema::create('testimonials', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('logo');
-            $table->longText('description');
-            $table->boolean('status')->default(1);
+            $table->string('image');
+            $table->string('position');
+            $table->LongText('description');
+            $table->Boolean('status')->default(1);
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sitesettings');
+        Schema::dropIfExists('testimonials');
     }
 };

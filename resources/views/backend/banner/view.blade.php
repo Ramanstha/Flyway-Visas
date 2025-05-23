@@ -16,7 +16,7 @@
                                 <th scope="col">S.N</th>
                                 <th scope="col">Title</th>
                                 <th scope="col">Image</th>
-                                <th scope="col">Description</th>
+                                <th scope="col">Subtitle</th>
                                 <th class="ac px-4" scope="col">Action</th>
                             </tr>
                         </thead>
@@ -28,7 +28,7 @@
                                 <td>
                                     <img src="{{asset('storage/banner/'.$site->image)}}" height="100" width="100">
                                 </td>
-                                <td>{{$site->description}}</td>
+                                <td>{{$site->subtitle}}</td>
                                 <td>
                                     <a href="{{route('edit.banner',$site->id)}}"><i class="fa fa-edit text-light px-4"
                                             title="Edit"></i></a>

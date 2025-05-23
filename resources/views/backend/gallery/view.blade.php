@@ -1,4 +1,4 @@
-@extends('backend.master')
+@extends('backend.main')
 @section('content')
 <div class="container-fluid pt-4 px-4">
     <div class="row g-4">
@@ -19,7 +19,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($file as $key=>$site)
+                            @foreach($data as $key=>$site)
                             <tr>
                                 <th scope="row">{{$key+1}}</th>
                                 <td>

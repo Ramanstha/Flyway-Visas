@@ -40,10 +40,10 @@
         <!-- Sidebar Start -->
         @include('backend.layout.sidebar')
         <!-- Sidebar End -->
-
+        
         <div class="content">
-
             @include('backend.layout.header')
+
             @yield('content')
 
             <!-- Footer Start -->

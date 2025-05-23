@@ -17,6 +17,15 @@
                         <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
+                    
+                    <div class="mb-3">
+                        <label class="mb-1">Subtitle <span class="text-danger">*</span></label>
+                        <textarea class="form-control" style="height: 150px;" name="subtitle"
+                            value="{{old('subtitle')}}">{{old('subtitle')}}</textarea>
+                        @error('subtitle')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
 
                     <div class="mb-3">
                         <label class="form-label">Image <span class="text-danger">*</span></label>
@@ -26,14 +35,6 @@
                         @enderror
                     </div>
 
-                    <div class="mb-3">
-                        <label class="mb-1">Description <span class="text-danger">*</span></label>
-                        <textarea class="form-control" style="height: 150px;" name="description"
-                            value="{{old('description')}}">{{old('description')}}</textarea>
-                        @error('description')
-                        <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                    </div>
                     <button type="submit" class="btn btn-primary">Add Banner</button>
                 </form>
             </div>

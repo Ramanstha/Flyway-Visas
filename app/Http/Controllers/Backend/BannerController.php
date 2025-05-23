@@ -21,12 +21,12 @@ class BannerController extends Controller
 
     public function Store(BannerRequest $request){
 
-        $data=$request->except('_token','logo');
-        $filename = $request->file('logo');        
-        $file = time() . '-' . 'logo' . '.' .$filename->getClientOriginalExtension();
+        $data=$request->except('_token','image');
+        $filename = $request->file('image');        
+        $file = time() . '-' . 'image' . '.' .$filename->getClientOriginalExtension();
         $destination = public_path('storage/banner/');
         $filename-> move($destination, $file);
-        $data['logo']=$file;
+        $data['image']=$file;
         $data=Banner::insert($data);
         return redirect()->route('view.banner')->with('message','Data Inserted Successfully');
     }
@@ -38,14 +38,14 @@ class BannerController extends Controller
 
     public function Update(Request $request,$id){
         $data=Banner::find($id);
-        $data1=$request->except('_token','logo');
-        if($request->file('logo')){
+        $data1=$request->except('_token','image');
+        if($request->file('image')){
                 File::delete(public_path('storage/banner/'.$data->image));
-                $filename=$request->file('logo');
-                $file= time(). '-'. 'logo'. $filename->getClientOriginalExtension();
+                $filename=$request->file('image');
+                $file= time(). '-'. 'image'. $filename->getClientOriginalExtension();
                 $destination=public_path('storage/banner/');
                 $filename->move($destination,$file);
-                $data1['logo']=$file;
+                $data1['image']=$file;
         }
         $data->update($data1);
         return redirect()->route('view.banner')->with('message', 'Data Updated Successfully');
@@ -53,8 +53,8 @@ class BannerController extends Controller
 
     public function Delete($id){
         $data=Banner::find($id);
-        $img_path=public_path('storage/banner/').$data->logo;
-        if(file_exists($img_path) && $data->logo!=null){
+        $img_path=public_path('storage/banner/').$data->image;
+        if(file_exists($img_path) && $data->image!=null){
             unlink($img_path);
             $data->delete();
         }

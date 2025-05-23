@@ -19,6 +19,15 @@
                     </div>
 
                     <div class="mb-3">
+                        <label class="mb-1">Subtitle <span class="text-danger">*</span></label>
+                        <textarea class="form-control" style="height: 150px;" name="subtitle"
+                            value="{{$data->subtitle}}">{{$data->subtitle}}</textarea>
+                        @error('subtitle')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    
+                    <div class="mb-3">
                         <label class="form-label">Image <span class="text-danger">*</span></label>
                         <input class="form-control bg-dark" type="file" name="image">
                         <img src="{{asset('storage/banner/'.$data->image)}}" height="100" width="100">
@@ -27,14 +36,6 @@
                         @enderror
                     </div>
 
-                    <div class="mb-3">
-                        <label class="mb-1">Description <span class="text-danger">*</span></label>
-                        <textarea class="form-control" style="height: 150px;" name="description"
-                            value="{{$data->description}}">{{$data->description}}</textarea>
-                        @error('description')
-                        <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                    </div>
                     <button type="submit" class="btn btn-primary">Update Banner</button>
                 </form>
             </div>

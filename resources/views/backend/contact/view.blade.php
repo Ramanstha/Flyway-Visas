@@ -1,4 +1,4 @@
-@extends('backend.master')
+@extends('backend.main')
 @section('content')
 <div class="container-fluid pt-4 px-4">
     <div class="row g-4">
@@ -14,7 +14,7 @@
                         <thead>
                             <tr>
                                 <th scope="col">S.N</th>
-                                <th scope="col">mail</th>
+                                <th scope="col">Email</th>
                                 <th scope="col">Phone</th>
                                 <th scope="col">Address</th>
                                 <th class="ac px-4" scope="col">Action</th>
@@ -24,7 +24,7 @@
                             @foreach($file as $key=>$site)
                             <tr>
                                 <th scope="row">{{$key+1}}</th>
-                                <td>{{$site->mail}}</td>
+                                <td>{{$site->email}}</td>
                                 <td>{{$site->phone}}</td>
                                 <td class="text-capitalize">{{$site->address}}</td>
                                 <td>
